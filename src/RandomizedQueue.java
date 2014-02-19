@@ -128,6 +128,14 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		public RandomIterator() {
 			indices = new int[N];
 
+			/*
+			 * Set up an array of random indices,
+			 * ensuring that a given index is not
+			 * repeated.  The iterator uses these
+			 * indices to produce random values
+			 * from the queue without hitting
+			 * a given index twice.
+			 */
 			for (int i = 0; i < N; i++) {
 				
 				boolean foundNewValue = false; 
