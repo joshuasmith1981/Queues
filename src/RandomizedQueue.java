@@ -58,13 +58,15 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 			return lastItem;
 		}
 
-		int randomIndex = StdRandom.uniform(0, N - 1);
+		int randomIndex = StdRandom.uniform(0, N);
 
 		Item item = items[randomIndex];
 		items[randomIndex] = null;
 
 		N--;
 
+		// If we dequeue an item from the middle of the array,
+		// collapse items above the current index to fill the gap.
 		if (randomIndex < N) {
 			compressArray(randomIndex + 1);
 		}
