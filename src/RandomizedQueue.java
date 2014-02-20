@@ -11,9 +11,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	 */
 	public static void main(String[] args) {
 
+		/*
 		RandomizedQueue<Integer> queue = new RandomizedQueue<Integer>();
 
-		int count = 10000;
+		int count = 100;
 		
 		for (int i = 0; i < count; i++) {
 			queue.enqueue(Integer.valueOf(i));
@@ -22,6 +23,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		for (int i = 0; i < count; i++) {
 			System.out.println(String.format("Dequeued: %s", queue.dequeue()));
 		}
+		*/
 	}
 
 	public RandomizedQueue() {
