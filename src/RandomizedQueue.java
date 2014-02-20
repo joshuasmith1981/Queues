@@ -10,34 +10,33 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		/*
-		RandomizedQueue<Integer> queue = new RandomizedQueue<Integer>();
-
-		int count = 100;
 		
-		for (int i = 0; i < count; i++) {
-			queue.enqueue(Integer.valueOf(i));
-		}
-		
-		for (int i = 0; i < count; i++) {
-			System.out.println(String.format("Dequeued: %s", queue.dequeue()));
-		}
-		*/
 	}
 
 	public RandomizedQueue() {
 		items = (Item[]) new Object[1];
 	}
 
+	/**
+	 * Is the queue empty?
+	 * @return Flag indicating whether the queue is empty
+	 */
 	public boolean isEmpty() {
 		return N == 0;
 	}
 
+	/**
+	 * Gets the size of the queue
+	 * @return The number of elements in the queue
+	 */
 	public int size() {
 		return N;
 	}
 
+	/**
+	 * Adds an item to the queue
+	 * @param item The item to be added
+	 */
 	public void enqueue(Item item) {
 		if (N == items.length - 1) {
 			resizeArray(items.length * 2);
@@ -46,6 +45,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		items[N++] = item;
 	}
 
+	/**
+	 * Deletes and returns a random item
+	 * @return A randomly-selected item
+	 */
 	public Item dequeue() {
 
 		if (N == 0) {
@@ -82,6 +85,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
 	/**
 	 * Returns (but does not delete) a random item
+	 * @return A randomly-selected item
 	 */
 	public Item sample() {
 
@@ -94,6 +98,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		return items[randomIndex];
 	}
 
+	/**
+	 * Creates an independent iterator over items in a random order 
+	 */
 	public Iterator<Item> iterator() {
 		return new RandomIterator();
 	}
