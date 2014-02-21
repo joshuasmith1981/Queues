@@ -10,7 +10,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 	}
 
 	public RandomizedQueue() {
@@ -38,6 +38,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	 * @param item The item to be added
 	 */
 	public void enqueue(Item item) {
+		
+		if (item == null) {
+			throw new NullPointerException();
+		}
+		
 		if (N == items.length - 1) {
 			resizeArray(items.length * 2);
 		}
@@ -169,7 +174,14 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 		}
 
 		public Item next() {
-			int index = indices[currentIndex++];
+			
+			if (currentIndex > indices.length - 1) {
+				throw new NoSuchElementException();
+			}
+			
+			int index = indices[currentIndex];
+			
+			currentIndex++;
 			
 			return items[index];
 		}
